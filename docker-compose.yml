@@ -17,6 +17,8 @@ services:
       discovery.type: single-node
       xpack.security.enabled: false
       xpack.security.transport.ssl.enabled: false
+      ELASTIC_USERNAME: "viva"
+      ELASTIC_PASSWORD: "vivatest123"
     networks:
       - elk
 

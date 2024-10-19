@@ -24,6 +24,6 @@ spring:
 logging:
   level:
     org.hibernate.orm.jdbc.bind: trace
-#  file:
-#    name: app.log
+  file:
+    name: app.log
   config: classpath:logback-spring.xml
