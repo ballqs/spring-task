@@ -59,6 +59,13 @@ dependencies {
 
     // prometheus 추가
     implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    //Slack API
+    implementation("com.slack.api:bolt:1.43.1")
+    implementation("com.slack.api:bolt-servlet:1.43.1")
+    implementation("com.slack.api:bolt-jetty:1.43.1")
+    implementation("org.slf4j:slf4j-simple:1.7.36")
+    implementation 'org.json:json:20190722'
 }
 
 tasks.named('test') {
