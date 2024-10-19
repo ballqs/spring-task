@@ -44,3 +44,6 @@ application-private.yaml
 
 ### elasticsearch ###
 /elk/elasticsearch
+
+### grafana_data ###
+/monitoring/grafana_data
