@@ -19,7 +19,10 @@ public enum ResponseCode {
     WRONG_PASSWORD("비밀번호가 일치하지 않습니다."),
 
     // 매니저
-    MANAGER_ALREADY_EXISTS("이미 매니저가 존재합니다.");
+    MANAGER_ALREADY_EXISTS("이미 매니저가 존재합니다."),
+
+    // 연결 이슈
+    CONNECTION_ERROR("연결 오류가 발생했습니다.");
 
     private final String message;
 }

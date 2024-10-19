@@ -12,6 +12,7 @@ import org.sparta.springtask.domain.user.repository.UserRepository;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.sparta.springtask.common.code.ResponseCode.*;
 
@@ -24,6 +25,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final ApplicationEventPublisher eventPublisher;
 
+    @Transactional
     public String saveUser(UserSignUpRequestDto userSignUpRequestDto) {
         boolean isExistUser = userRepository.existsByEmail(userSignUpRequestDto.getEmail());
 
