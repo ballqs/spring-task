@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/*/user/**").permitAll()
                         .requestMatchers(HttpMethod.PATCH, "/api/*/users/authority").hasAuthority(UserRole.Authority.ADMIN)
                         .requestMatchers(HttpMethod.POST, "/api/*/workspaces").hasAuthority(UserRole.Authority.ADMIN)
-                        .requestMatchers("/actuator/**").permitAll()
+                        .requestMatchers("/actuator/prometheus").permitAll()
                         .anyRequest().authenticated()
                 )
                 .build();

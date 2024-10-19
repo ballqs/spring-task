@@ -110,3 +110,135 @@ This generated password is for development use only. Your security configuration
 }  INFO 21836 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-10-19 14:10:00,661 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource -HikariPool-1 - Shutdown completed.
 }  INFO 21836 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-19T14:10:03.086+09:00  INFO 21080 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Starting SpringTaskApplication using Java 17.0.12 with PID 21080 (D:\bootcamp\project\spring-task\build\classes\java\main started by user in D:\bootcamp\project\spring-task)
+2024-10-19T14:10:03.088+09:00  INFO 21080 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : The following 2 profiles are active: "private", "dev"
+2024-10-19T14:10:03.705+09:00  INFO 21080 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-19T14:10:03.767+09:00  INFO 21080 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
+2024-10-19T14:10:04.308+09:00  INFO 21080 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2024-10-19T14:10:04.318+09:00  INFO 21080 --- [spring-task] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-19T14:10:04.319+09:00  INFO 21080 --- [spring-task] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-19T14:10:04.384+09:00  INFO 21080 --- [spring-task] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-19T14:10:04.384+09:00  INFO 21080 --- [spring-task] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1263 ms
+2024-10-19T14:10:04.537+09:00  INFO 21080 --- [spring-task] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-19T14:10:04.596+09:00  INFO 21080 --- [spring-task] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-19T14:10:04.624+09:00  INFO 21080 --- [spring-task] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-19T14:10:04.889+09:00  INFO 21080 --- [spring-task] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-19T14:10:04.915+09:00  INFO 21080 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-19T14:10:05.036+09:00  INFO 21080 --- [spring-task] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@39afe59f
+2024-10-19T14:10:05.038+09:00  INFO 21080 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-19T14:10:05.056+09:00  WARN 21080 --- [spring-task] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: java.sql.SQLSyntaxErrorException: Unknown column 'RESERVED' in 'where clause'
+2024-10-19T14:10:05.070+09:00  WARN 21080 --- [spring-task] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-19T14:10:05.751+09:00  INFO 21080 --- [spring-task] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-19T14:10:05.754+09:00  INFO 21080 --- [spring-task] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:10:06.079+09:00  WARN 21080 --- [spring-task] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-19T14:10:06.099+09:00  WARN 21080 --- [spring-task] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e1b38006-3850-4361-8219-be642378ca9f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-10-19T14:10:06.106+09:00  INFO 21080 --- [spring-task] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-10-19T14:10:06.587+09:00  INFO 21080 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2024-10-19T14:10:06.594+09:00  INFO 21080 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Started SpringTaskApplication in 3.913 seconds (process running for 4.409)
+2024-10-19T14:19:24.247+09:00  INFO 21080 --- [spring-task] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:19:24.249+09:00  INFO 21080 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-19T14:19:24.254+09:00  INFO 21080 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-19T14:19:27.205+09:00  INFO 21784 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Starting SpringTaskApplication using Java 17.0.12 with PID 21784 (D:\bootcamp\project\spring-task\build\classes\java\main started by user in D:\bootcamp\project\spring-task)
+2024-10-19T14:19:27.207+09:00  INFO 21784 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : The following 2 profiles are active: "private", "dev"
+2024-10-19T14:19:27.804+09:00  INFO 21784 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-19T14:19:27.865+09:00  INFO 21784 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2024-10-19T14:19:28.413+09:00  INFO 21784 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2024-10-19T14:19:28.424+09:00  INFO 21784 --- [spring-task] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-19T14:19:28.424+09:00  INFO 21784 --- [spring-task] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-19T14:19:28.486+09:00  INFO 21784 --- [spring-task] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-19T14:19:28.486+09:00  INFO 21784 --- [spring-task] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1244 ms
+2024-10-19T14:19:28.639+09:00  INFO 21784 --- [spring-task] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-19T14:19:28.706+09:00  INFO 21784 --- [spring-task] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-19T14:19:28.739+09:00  INFO 21784 --- [spring-task] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-19T14:19:29.015+09:00  INFO 21784 --- [spring-task] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-19T14:19:29.041+09:00  INFO 21784 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-19T14:19:29.161+09:00  INFO 21784 --- [spring-task] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@54387873
+2024-10-19T14:19:29.162+09:00  INFO 21784 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-19T14:19:29.181+09:00  WARN 21784 --- [spring-task] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: java.sql.SQLSyntaxErrorException: Unknown column 'RESERVED' in 'where clause'
+2024-10-19T14:19:29.194+09:00  WARN 21784 --- [spring-task] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-19T14:19:29.901+09:00  INFO 21784 --- [spring-task] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-19T14:19:29.904+09:00  INFO 21784 --- [spring-task] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:19:30.244+09:00  WARN 21784 --- [spring-task] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-19T14:19:30.264+09:00  WARN 21784 --- [spring-task] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6b752c58-2259-4d4e-9382-9f151b93fe73
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-10-19T14:19:30.270+09:00  INFO 21784 --- [spring-task] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-10-19T14:19:30.752+09:00  INFO 21784 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2024-10-19T14:19:30.758+09:00  INFO 21784 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Started SpringTaskApplication in 3.984 seconds (process running for 4.531)
+2024-10-19T14:46:15.843+09:00  INFO 21784 --- [spring-task] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:46:15.845+09:00  INFO 21784 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-19T14:46:15.858+09:00  INFO 21784 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-19T14:57:49.903+09:00  INFO 20012 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Starting SpringTaskApplication using Java 17.0.12 with PID 20012 (D:\bootcamp\project\spring-task\build\classes\java\main started by user in D:\bootcamp\project\spring-task)
+2024-10-19T14:57:49.930+09:00  INFO 20012 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : The following 2 profiles are active: "private", "dev"
+2024-10-19T14:57:50.542+09:00  INFO 20012 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-19T14:57:50.603+09:00  INFO 20012 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2024-10-19T14:57:51.176+09:00  INFO 20012 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2024-10-19T14:57:51.188+09:00  INFO 20012 --- [spring-task] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-19T14:57:51.188+09:00  INFO 20012 --- [spring-task] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-19T14:57:51.252+09:00  INFO 20012 --- [spring-task] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-19T14:57:51.253+09:00  INFO 20012 --- [spring-task] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1287 ms
+2024-10-19T14:57:51.415+09:00  INFO 20012 --- [spring-task] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-19T14:57:51.476+09:00  INFO 20012 --- [spring-task] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-19T14:57:51.506+09:00  INFO 20012 --- [spring-task] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-19T14:57:51.788+09:00  INFO 20012 --- [spring-task] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-19T14:57:51.815+09:00  INFO 20012 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-19T14:57:51.934+09:00  INFO 20012 --- [spring-task] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e96cb04
+2024-10-19T14:57:51.936+09:00  INFO 20012 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-19T14:57:51.956+09:00  WARN 20012 --- [spring-task] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: java.sql.SQLSyntaxErrorException: Unknown column 'RESERVED' in 'where clause'
+2024-10-19T14:57:51.971+09:00  WARN 20012 --- [spring-task] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-19T14:57:52.701+09:00  INFO 20012 --- [spring-task] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-19T14:57:52.704+09:00  INFO 20012 --- [spring-task] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:57:53.048+09:00  WARN 20012 --- [spring-task] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-19T14:57:53.071+09:00  WARN 20012 --- [spring-task] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: faacace3-a96b-4dfe-9ec7-b7b070959a77
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-10-19T14:57:53.080+09:00  INFO 20012 --- [spring-task] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-10-19T14:57:53.595+09:00  INFO 20012 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2024-10-19T14:57:53.602+09:00  INFO 20012 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Started SpringTaskApplication in 4.259 seconds (process running for 5.056)
+2024-10-19T14:58:31.200+09:00  INFO 20012 --- [spring-task] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:58:31.202+09:00  INFO 20012 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-19T14:58:31.208+09:00  INFO 20012 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-19T14:58:36.442+09:00  INFO 2020 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Starting SpringTaskApplication using Java 17.0.12 with PID 2020 (D:\bootcamp\project\spring-task\build\classes\java\main started by user in D:\bootcamp\project\spring-task)
+2024-10-19T14:58:36.445+09:00  INFO 2020 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : The following 2 profiles are active: "private", "dev"
+2024-10-19T14:58:37.112+09:00  INFO 2020 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-19T14:58:37.178+09:00  INFO 2020 --- [spring-task] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 1 JPA repository interface.
+2024-10-19T14:58:37.770+09:00  INFO 2020 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2024-10-19T14:58:37.780+09:00  INFO 2020 --- [spring-task] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-19T14:58:37.780+09:00  INFO 2020 --- [spring-task] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-19T14:58:37.851+09:00  INFO 2020 --- [spring-task] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-19T14:58:37.851+09:00  INFO 2020 --- [spring-task] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1356 ms
+2024-10-19T14:58:38.016+09:00  INFO 2020 --- [spring-task] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-19T14:58:38.076+09:00  INFO 2020 --- [spring-task] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-19T14:58:38.112+09:00  INFO 2020 --- [spring-task] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-19T14:58:38.395+09:00  INFO 2020 --- [spring-task] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-19T14:58:38.421+09:00  INFO 2020 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-19T14:58:38.542+09:00  INFO 2020 --- [spring-task] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1efcba00
+2024-10-19T14:58:38.544+09:00  INFO 2020 --- [spring-task] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-19T14:58:38.564+09:00  WARN 2020 --- [spring-task] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000339: Could not obtain connection metadata: java.sql.SQLSyntaxErrorException: Unknown column 'RESERVED' in 'where clause'
+2024-10-19T14:58:38.577+09:00  WARN 2020 --- [spring-task] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-19T14:58:39.308+09:00  INFO 2020 --- [spring-task] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-19T14:58:39.310+09:00  INFO 2020 --- [spring-task] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:58:39.726+09:00  WARN 2020 --- [spring-task] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-19T14:58:39.762+09:00  WARN 2020 --- [spring-task] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9fda1688-11f9-4c38-9d58-ee2d8e6b3b8a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-10-19T14:58:39.771+09:00  INFO 2020 --- [spring-task] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-10-19T14:58:40.297+09:00  INFO 2020 --- [spring-task] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2024-10-19T14:58:40.304+09:00  INFO 2020 --- [spring-task] [main] o.s.springtask.SpringTaskApplication     : Started SpringTaskApplication in 4.568 seconds (process running for 5.272)
+2024-10-19T14:59:30.636+09:00  INFO 2020 --- [spring-task] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-19T14:59:30.637+09:00  INFO 2020 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-19T14:59:30.642+09:00  INFO 2020 --- [spring-task] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

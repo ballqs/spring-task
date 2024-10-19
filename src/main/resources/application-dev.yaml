@@ -20,8 +20,10 @@ spring:
       max-file-size: 5MB
       max-request-size: 5MB
       enabled: true
+
 logging:
   level:
     org.hibernate.orm.jdbc.bind: trace
-  file:
-    name: app.log
+#  file:
+#    name: app.log
+  config: classpath:logback-spring.xml
