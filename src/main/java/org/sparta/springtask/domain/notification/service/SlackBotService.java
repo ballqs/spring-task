@@ -24,12 +24,12 @@ public class SlackBotService {
     public void sendSlackMessage(String channelId,String message){
         RestTemplate restTemplate=new RestTemplate();
 
-        HttpHeaders headers=new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setBearerAuth(SLACKBOT_TOKEN);
+        headers.setBearerAuth(SLACKBOT_TOKEN);  // 슬랫 봇의 TOKEN
 
         //슬랙 메시지 전송을 위한 JSON
-        org.json.JSONObject json=new JSONObject();
+        org.json.JSONObject json = new JSONObject();
         json.put("channel",channelId); // 메시지를 보낼 ID
         json.put("text",message); //전송할 메시지
 

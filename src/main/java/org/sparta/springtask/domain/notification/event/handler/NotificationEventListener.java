@@ -22,7 +22,7 @@ public class NotificationEventListener {
      */
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
     public void handleSavedCommentEvent(@NotNull UserCreateEvent event){
-        //알림 서비스 로직 호출
+        //알림 서비스 로직 호출(@Transactional이 걸려 있으면 여기도 같이 탐)
         notificationService.sendNotification(event.getUserId() , "메세지");
     }
 }
