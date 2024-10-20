@@ -47,3 +47,6 @@ application-private.yaml
 
 ### grafana_data ###
 /monitoring/grafana_data
+
+### redis data ###
+/data

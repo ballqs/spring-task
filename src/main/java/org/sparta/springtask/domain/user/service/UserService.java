@@ -26,14 +26,14 @@ public class UserService {
     private final ApplicationEventPublisher eventPublisher;
 
     @Transactional
-    public String saveUser(UserSignUpRequestDto userSignUpRequestDto) {
-        boolean isExistUser = userRepository.existsByEmail(userSignUpRequestDto.getEmail());
+    public String saveUser(UserSignUpRequestDto.SignUpDto userSignUpRequestDto) {
+        boolean isExistUser = userRepository.existsByEmail(userSignUpRequestDto.email());
 
         if (isExistUser) {
             throw new DuplicateException(DUPLICATE_EMAIL);
         }
 
-        String encryptPassword = passwordEncoder.encode(userSignUpRequestDto.getPassword());
+        String encryptPassword = passwordEncoder.encode(userSignUpRequestDto.password());
         User user = User.from(encryptPassword, userSignUpRequestDto);
 
         User savedUser = userRepository.save(user);
@@ -44,10 +44,10 @@ public class UserService {
         return jwtUtil.createToken(savedUser.getId(), savedUser.getEmail(), savedUser.getAuthority());
     }
 
-    public String getUserWithEmailAndPassword(UserSignInRequestDto userSignInRequestDto) {
-        User user = userRepository.findByUserEmail(userSignInRequestDto.getEmail());
+    public String getUserWithEmailAndPassword(UserSignInRequestDto.SignInDto userSignInRequestDto) {
+        User user = userRepository.findByUserEmail(userSignInRequestDto.email());
 
-        if (!passwordEncoder.matches(userSignInRequestDto.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(userSignInRequestDto.password(), user.getPassword())) {
             throw new InvalidParameterException(WRONG_EMAIL_OR_PASSWORD);
         }
 

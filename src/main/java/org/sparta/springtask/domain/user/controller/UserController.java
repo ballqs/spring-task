@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<SuccessResponse<Void>> signUp(
-            @Valid @RequestBody UserSignUpRequestDto userSignUpRequestDto
+            @Valid @RequestBody UserSignUpRequestDto.SignUpDto userSignUpRequestDto
     ) {
         String accessToken = userService.saveUser(userSignUpRequestDto);
         return ResponseEntity.ok().header(AUTHORIZATION, accessToken).body(SuccessResponse.of(null));
@@ -28,7 +28,7 @@ public class UserController {
 
     @PostMapping("/sign-in")
     public ResponseEntity<SuccessResponse<Void>> signIn(
-            @Valid @RequestBody UserSignInRequestDto userSignInRequestDto
+            @Valid @RequestBody UserSignInRequestDto.SignInDto userSignInRequestDto
     ) {
         String accessToken = userService.getUserWithEmailAndPassword(userSignInRequestDto);
         return ResponseEntity.ok().header(AUTHORIZATION, accessToken).body(SuccessResponse.of(null));

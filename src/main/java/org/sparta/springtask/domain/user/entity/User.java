@@ -35,12 +35,12 @@ public class User {
         this.authority = authority;
     }
 
-    public static User from(String encryptPassword, UserSignUpRequestDto userSignUpRequestDto) {
+    public static User from(String encryptPassword, UserSignUpRequestDto.SignUpDto userSignUpRequestDto) {
         return new User(
-                userSignUpRequestDto.getEmail(),
+                userSignUpRequestDto.email(),
                 encryptPassword,
-                userSignUpRequestDto.getName(),
-                UserRole.of(userSignUpRequestDto.getAuthority())
+                userSignUpRequestDto.name(),
+                UserRole.of(userSignUpRequestDto.authority())
         );
     }
 }

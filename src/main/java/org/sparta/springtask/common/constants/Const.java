@@ -9,4 +9,6 @@ public class Const {
 
     public static final String USER_EMAIL = "email";
     public static final String USER_ROLE = "userRole";
+
+    public static final String REDIS_PREFIX = "redis://";
 }

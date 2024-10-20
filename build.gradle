@@ -66,6 +66,12 @@ dependencies {
     implementation("com.slack.api:bolt-jetty:1.43.1")
     implementation("org.slf4j:slf4j-simple:1.7.36")
     implementation 'org.json:json:20190722'
+
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    //redisson
+    implementation 'org.redisson:redisson-spring-boot-starter:3.27.0'
 }
 
 tasks.named('test') {
