@@ -42,6 +42,8 @@ jobs:
       - name: SonarCloud Scan
         env:
           SPRING_PROFILES_ACTIVE: test
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_PORT: ${{ secrets.REDIS_PORT }}
           SLACKBOT_TOKEN: ${{ secrets.SLACKBOT_TOKEN }}
           JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
