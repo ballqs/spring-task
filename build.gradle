@@ -36,6 +36,23 @@ subprojects {
     }
 }
 
+def jacocoExcludePatterns = [
+        // 측정 안하고 싶은 패턴
+        "**/*Application*",
+        "**/*Config*",
+        "**/*Aop*",
+        "**/*Exception*",
+        "**/*Request*",
+        "**/*Response*",
+        "**/*Dto*",
+        "**/*Interceptor*",
+        "**/*Filter*",
+        "**/*Resolver*",
+        "**/*Entity*",
+        "**/test/**",
+        "**/resources/**"
+]
+
 sonar {
     properties {
         property "sonar.projectKey", "프로젝트 키"
@@ -44,6 +61,7 @@ sonar {
         property 'sonar.sources', 'src'
         property 'sonar.language', 'java'
         property 'sonar.sourceEncoding', 'UTF-8'
+        property 'sonar.test.exclusions', jacocoExcludePatterns.join(',')
         property "sonar.profile", "Sonar way"
         property 'sonar.test.inclusions', '**/*Test.java'
         property 'sonar.exclusions', '**/Q*.java, **/config/**'
