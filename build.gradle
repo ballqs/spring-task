@@ -46,7 +46,7 @@ sonar {
         property 'sonar.sourceEncoding', 'UTF-8'
         property "sonar.profile", "Sonar way"
         property 'sonar.test.inclusions', '**/*Test.java'
-        property 'sonar.exclusions', '**/Q*.java, **/config/** , **/logback-spring.xml'
+        property 'sonar.test.exclusions', '**/Q*.java, **/config/** , **/logback-spring.xml'
         property 'sonar.java.coveragePlugin', 'jacoco'
     }
 }
