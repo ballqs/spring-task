@@ -19,6 +19,9 @@ public class NotificationController {
 
     private final NotificationService notificationService;
 
+    /**
+     * 이벤트를 받는 용도
+     */
     @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public ResponseEntity<SseEmitter> subscribe(@AuthenticationPrincipal AuthUser authUser) {
         if (authUser == null) {
