@@ -1,4 +1,7 @@
 package org.sparta.springtask.domain.waiting.repository;
 
-public class WaitingRepository {
+import org.sparta.springtask.domain.waiting.entity.Waiting;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WaitingRepository extends JpaRepository<Waiting, Long> {
 }
