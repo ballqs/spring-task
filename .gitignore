@@ -48,5 +48,5 @@ application-private.yaml
 ### grafana_data ###
 /elk/grafana/grafana_data
 
-### redis sentinal data ###
+### redis data ###
 /elk/data
