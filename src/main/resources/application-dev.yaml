@@ -26,20 +26,20 @@ spring:
       host: ${REDIS_HOST}
       port: ${REDIS_PORT}
 
-logging:
-  level:
-    org.hibernate.orm.jdbc.bind: trace
-  file:
-    name: app.log
-  config: classpath:logback-spring.xml
+#logging:
+#  level:
+#    org.hibernate.orm.jdbc.bind: trace
+#  file:
+#    name: app.log
+#  config: classpath:logback-spring.xml
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "prometheus"
-  endpoint:
-    prometheus:
-      enabled: true
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "prometheus"
+#  endpoint:
+#    prometheus:
+#      enabled: true
 
 slackBotToken: ${SLACKBOT_TOKEN}
