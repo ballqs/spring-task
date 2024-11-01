@@ -46,7 +46,7 @@ application-private.yaml
 /elk/elasticsearch
 
 ### grafana_data ###
-/monitoring/grafana_data
+/elk/grafana/grafana_data
 
-### redis data ###
-/data
+### redis sentinal data ###
+/elk/data
