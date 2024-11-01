@@ -11,4 +11,5 @@ public class Const {
     public static final String USER_ROLE = "userRole";
 
     public static final String REDIS_PREFIX = "redis://";
+    public static final String TOKEN_PREFIX = "Bearer ";
 }

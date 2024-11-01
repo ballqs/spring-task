@@ -18,8 +18,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-import static org.sparta.springtask.common.constants.Const.USER_EMAIL;
-import static org.sparta.springtask.common.constants.Const.USER_ROLE;
+import static org.sparta.springtask.common.constants.Const.*;
 
 
 @Slf4j(topic = "JwtTokenFilter")
@@ -42,7 +41,7 @@ public class JwtSecurityFilter extends OncePerRequestFilter {
             // 토큰 확인
             String tokenValue = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-            if (Strings.isNotBlank(tokenValue) && tokenValue.startsWith("Bearer ")) { // 토큰이 존재하면 검증 시작
+            if (Strings.isNotBlank(tokenValue) && tokenValue.startsWith(TOKEN_PREFIX)) { // 토큰이 존재하면 검증 시작
                 // 토큰 검증
                 String token = jwtUtil.substringToken(tokenValue);
 
