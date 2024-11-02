@@ -25,7 +25,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Slf4j
-@Primary
 @RequiredArgsConstructor
 @Service
 public class WaitingServiceImpl implements WaitingService {

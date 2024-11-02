@@ -26,7 +26,7 @@ public interface WaitingRepository extends JpaRepository<Waiting, Long> {
     @Query("SELECT w FROM Waiting w WHERE w.user.id = :userId AND w.store.id = :storeId AND w.waitNumber = :waitNumber")
     Waiting findWaitingByStoreIdAndWaitNumber(Long userId , Long storeId , Long waitNumber);
 
-    @Query("SELECT w FROM Waiting w WHERE w.user.id = :userId AND w.store.id = :storeId AND w.status = :status AND DATE_FORMAT(w.waitingTime, '%Y-%m-%d') = :date")
+    @Query("SELECT w FROM Waiting w INNER JOIN FETCH w.store s WHERE s.user.id = :userId AND w.store.id = :storeId AND w.status = :status AND DATE_FORMAT(w.waitingTime, '%Y-%m-%d') = :date")
     Page<Waiting> findWaitingByList(Long userId, Long storeId, WaitingStatus status, LocalDate date, Pageable pageable);
 
     Optional<Waiting> findWaitingByIdAndUserIdAndStoreId(Long waitingId , Long userId , Long storeId);

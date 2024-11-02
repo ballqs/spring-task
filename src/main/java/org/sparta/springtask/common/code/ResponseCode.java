@@ -11,6 +11,8 @@ public enum ResponseCode {
     INVALID_TIMEOUT("다시 시도해주세요."),
     FORBIDDEN("접근 권한이 없습니다."),
 
+    REDISSON_ANNOTATION_ERROR("Redisson 에러"),
+
     // 사용자
     NOT_FOUND_USER("해당 사용자는 존재하지 않습니다."),
     NOT_FOUND_STORE("해당 음식점는 존재하지 않습니다."),
