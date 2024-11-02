@@ -51,4 +51,8 @@ public class Waiting extends Timestamped {
         this.user = user;
         this.store = store;
     }
+
+    public void updateWaitingStatus(WaitingStatus status) {
+        this.status = status;
+    }
 }
