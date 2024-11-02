@@ -34,7 +34,7 @@ public class WaitingController {
     }
 
     @Secured({UserRole.Authority.USER})
-    @PostMapping("/waiting/cancel")
+    @PatchMapping("/waiting/cancel")
     public ResponseEntity<SuccessResponse<Void>> cancelWaiting(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId,
@@ -44,7 +44,7 @@ public class WaitingController {
     }
 
     @Secured({UserRole.Authority.OWNER})
-    @PostMapping("/waiting/complete")
+    @PatchMapping("/waiting/complete")
     public ResponseEntity<SuccessResponse<Void>> moveToReservation(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId
@@ -54,7 +54,7 @@ public class WaitingController {
     }
 
     @Secured({UserRole.Authority.OWNER})
-    @PostMapping("/waiting/close")
+    @PatchMapping("/waiting/close")
     public ResponseEntity<SuccessResponse<Void>> closeWaitingQueue(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId,
@@ -69,7 +69,7 @@ public class WaitingController {
     public ResponseEntity<SuccessResponse<Page<WaitingResponse.List>>> getWaitingList(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId,
-            @RequestParam WaitingRequest.List list
+            @ModelAttribute WaitingRequest.List list
     ) {
         return ResponseEntity.ok(SuccessResponse.of(waitingService.getWaitingList(authUser.getUserId() , storeId , list)));
     }
@@ -79,19 +79,19 @@ public class WaitingController {
     public ResponseEntity<SuccessResponse<WaitingResponse.Info>> getWaitingInfo(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId,
-            @RequestParam WaitingRequest.Info Info
+            @RequestParam Long waitingId
     ) {
-        return ResponseEntity.ok(SuccessResponse.of(waitingService.getWaitingInfo(authUser.getUserId() , storeId , Info)));
+        return ResponseEntity.ok(SuccessResponse.of(waitingService.getWaitingInfo(authUser.getUserId() , storeId , waitingId)));
     }
 
     @Secured({UserRole.Authority.USER})
-    @GetMapping("/waiting/delay")
+    @PostMapping("/waiting/delay")
     public ResponseEntity<SuccessResponse<WaitingResponse.Info>> delayWaitingNumber(
             @AuthenticationPrincipal AuthUser authUser,
             @PathVariable Long storeId,
-            @RequestParam WaitingRequest.Info Info
+            @RequestBody WaitingRequest.Delay delay
     ) {
-        waitingService.delayWaitingNumber(authUser.getUserId() , storeId , Info);
+        waitingService.delayWaitingNumber(authUser.getUserId() , storeId , delay);
         return ResponseEntity.ok(SuccessResponse.of(null));
     }
 }

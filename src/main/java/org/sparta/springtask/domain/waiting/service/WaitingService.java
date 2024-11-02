@@ -10,7 +10,7 @@ public interface WaitingService {
     void closeWaitingQueue(Long userId , Long storeId , WaitingRequest.Close close);
     void cancelWaiting(Long userId , Long storeId , WaitingRequest.Cancel cancel);
     Page<WaitingResponse.List> getWaitingList(Long userId , Long storeId , WaitingRequest.List list);
-    WaitingResponse.Info getWaitingInfo(Long userId , Long storeId , WaitingRequest.Info info);
-    void delayWaitingNumber(Long userId , Long storeId , WaitingRequest.Info info);
+    WaitingResponse.Info getWaitingInfo(Long userId , Long storeId , Long waitingId);
+    void delayWaitingNumber(Long userId , Long storeId , WaitingRequest.Delay delay);
 
 }

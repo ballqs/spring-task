@@ -107,28 +107,16 @@ public class WaitingServiceImpl implements WaitingService {
 
     // 대기열 조회 기능(USER)
     @Override
-    public WaitingResponse.Info getWaitingInfo(Long userId , Long storeId , WaitingRequest.Info info) {
-        Store store = storeRepository.findById(storeId).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_STORE));
-
-        if (userId != store.getUser().getId()) {
-            throw new ForbiddenException(ResponseCode.FORBIDDEN);
-        }
-
-        Waiting waiting = waitingRepository.findById(info.waitingId()).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_WAITING));
+    public WaitingResponse.Info getWaitingInfo(Long userId , Long storeId , Long waitingId) {
+        Waiting waiting = waitingRepository.findWaitingByIdAndUserIdAndStoreId(waitingId , userId , storeId).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_WAITING));
         return new WaitingResponse.Info(waiting.getWaitNumber() , waiting.getPeopleNumber());
     }
 
     // 대기 미루기 기능(맨 뒤로 미루는 기능)
     @Override
     @Transactional
-    public void delayWaitingNumber(Long userId , Long storeId , WaitingRequest.Info info) {
-        Store store = storeRepository.findById(storeId).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_STORE));
-
-        if (userId != store.getUser().getId()) {
-            throw new ForbiddenException(ResponseCode.FORBIDDEN);
-        }
-
-        Waiting waiting = waitingRepository.findById(info.waitingId()).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_WAITING));
+    public void delayWaitingNumber(Long userId , Long storeId , WaitingRequest.Delay delay) {
+        Waiting waiting = waitingRepository.findWaitingByIdAndUserIdAndStoreId(delay.waitingId() , userId , storeId).orElseThrow(() -> new NotFoundException(ResponseCode.NOT_FOUND_WAITING));
         waiting.updateWaitingStatus(WaitingStatus.CANCELED);
 
         waitingCreate(userId , storeId , new WaitingRequest.Create(waiting.getPeopleNumber()));

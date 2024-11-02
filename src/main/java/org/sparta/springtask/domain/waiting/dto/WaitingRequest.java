@@ -2,7 +2,7 @@ package org.sparta.springtask.domain.waiting.dto;
 
 import java.util.Objects;
 
-public sealed interface WaitingRequest permits WaitingRequest.Create , WaitingRequest.Close , WaitingRequest.Cancel , WaitingRequest.List , WaitingRequest.Info {
+public sealed interface WaitingRequest permits WaitingRequest.Create , WaitingRequest.Close , WaitingRequest.Cancel , WaitingRequest.List , WaitingRequest.Delay {
     record Create(
             Long peopleNumber
     ) implements WaitingRequest{}
@@ -25,7 +25,7 @@ public sealed interface WaitingRequest permits WaitingRequest.Create , WaitingRe
         }
     }
 
-    record Info(
+    record Delay(
             Long waitingId
     ) implements WaitingRequest {}
 }
