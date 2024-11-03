@@ -2,14 +2,13 @@ package org.sparta.springtask.domain.waiting.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.redisson.api.RAtomicLong;
-import org.redisson.api.RQueue;
-import org.redisson.api.RSetMultimap;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
+import org.sparta.springtask.common.annotation.RedissonLock;
 import org.sparta.springtask.domain.waiting.dto.WaitingRequest;
 import org.sparta.springtask.domain.waiting.dto.WaitingResponse;
 import org.sparta.springtask.domain.waiting.entity.Waiting;
 import org.sparta.springtask.domain.waiting.enums.WaitingStatus;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -20,30 +19,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
+@Primary
 @RequiredArgsConstructor
 @Service
 public class WaitingRedisV2ServiceImpl implements WaitingService {
 
     private static final String KEY_PREFIX_WAITING = "waiting:";
     private static final String KEY_PREFIX_STORE = "store:";
+    private static final String KEY_NUMBER = "number";
+    private static final String KEY_SCORE = "score";
 
     private final RedissonClient redissonClient;
 
     @Override
-//    @RedissonLock("#userId")
+    @RedissonLock("#storeId")
     public void waitingCreate(Long userId, Long storeId, WaitingRequest.Create create) {
         // 키 이름 구성: store:1:waiting
         String redisKey = getRedisKey(storeId);
 
         // RAtomicLong
-        RAtomicLong waitingNumber = redissonClient.getAtomicLong(redisKey + "number"); // 대기 번호용 AtomicLong
+        RAtomicLong waitingNumber = redissonClient.getAtomicLong(redisKey + KEY_NUMBER); // 대기 번호용 AtomicLong
         long maxWaitNumber = waitingNumber.incrementAndGet(); // 현재 값에 1을 더하고 반환
 
-        // RQueue
-        RQueue<Waiting> waitingQueue = redissonClient.getQueue(redisKey + "queue"); // 대기열
-
-        // RSetMultimap
-        RSetMultimap<Long, Waiting> waitingMap = redissonClient.getSetMultimap(redisKey + "map"); // 대기 정보 저장용 멀티맵
+        RScoredSortedSet<Waiting> sortedSet = redissonClient.getScoredSortedSet(redisKey + KEY_SCORE);
 
         // 대기 항목 생성
         Waiting waiting = Waiting.builder()
@@ -53,11 +51,7 @@ public class WaitingRedisV2ServiceImpl implements WaitingService {
                 .status(WaitingStatus.WAITING)
                 .build();
 
-        // 대기 정보를 RSetMultimap에 추가
-        waitingMap.put(maxWaitNumber, waiting);
-
-        // 대기열에 대기 항목 추가
-        waitingQueue.add(waiting);
+        sortedSet.add((double) maxWaitNumber, waiting);
     }
 
     public String getRedisKey(Long storeId) {
@@ -66,6 +60,16 @@ public class WaitingRedisV2ServiceImpl implements WaitingService {
 
     @Override
     public void moveToReservation(Long userId, Long storeId) {
+        String redisKey = getRedisKey(storeId);
+        RScoredSortedSet<Waiting> sortedSet = redissonClient.getScoredSortedSet(redisKey + KEY_SCORE);
+
+        if(sortedSet.isEmpty()) {
+            return;
+        }
+
+        Waiting waiting = sortedSet.pollFirst();
+        log.info("waitNumber : {}" , waiting.getWaitNumber());
+        log.info("peopleNumber : {}" , waiting.getPeopleNumber());
 
     }
 
