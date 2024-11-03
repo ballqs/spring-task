@@ -33,6 +33,37 @@ public class RedissonLockAspect {
         Method method = signature.getMethod();
         RedissonLock annotation = method.getAnnotation(RedissonLock.class);
 
+        String lockKey = getLockKey(annotation , joinPoint);
+        log.debug("redissonLock lockKey:{}", lockKey);
+
+        RLock lock = redissonClient.getFairLock(lockKey);
+
+        boolean lockable = lock.tryLock(annotation.waitTime(), annotation.leaseTime(), TimeUnit.MILLISECONDS);
+        if (!lockable) {
+            log.debug("Lock 획득 실패={}", lockKey);
+            return null;
+        }
+
+        Object result = null; // 리턴 값 저장할 변수
+
+        try {
+            log.debug("로직 수행");
+            result = joinPoint.proceed();
+        } catch (InterruptedException e) {
+            log.debug("에러 발생");
+            throw e;
+        } finally {
+            if (lock.isHeldByCurrentThread()) { // 현재 스레드가 락을 보유하고 있는지 확인
+                log.debug("락 해제");
+                lock.unlock();
+            }
+        }
+        return result;
+    }
+
+    private String getLockKey(RedissonLock annotation , ProceedingJoinPoint joinPoint) {
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+
         String lockKey = "";
         char c = annotation.value().charAt(0);
 
@@ -58,27 +89,6 @@ public class RedissonLockAspect {
             throw new ApiException(HttpStatus.BAD_REQUEST , ResponseCode.REDISSON_ANNOTATION_ERROR.getMessage());
         }
 
-        log.info("redissonLock lockKey:{}", lockKey);
-
-        RLock lock = redissonClient.getFairLock(lockKey);
-
-        Object result = null; // 리턴 값 저장할 변수
-
-        try {
-            boolean lockable = lock.tryLock(annotation.waitTime(), annotation.leaseTime(), TimeUnit.MILLISECONDS);
-            if (!lockable) {
-                log.info("Lock 획득 실패={}", lockKey);
-                return null;
-            }
-            log.info("로직 수행");
-            result = joinPoint.proceed();
-        } catch (InterruptedException e) {
-            log.info("에러 발생");
-            throw e;
-        } finally {
-            log.info("락 해제");
-            lock.unlock();
-        }
-        return result;
+        return lockKey;
     }
 }

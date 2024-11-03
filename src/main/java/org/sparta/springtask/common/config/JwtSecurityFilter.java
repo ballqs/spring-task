@@ -51,7 +51,7 @@ public class JwtSecurityFilter extends OncePerRequestFilter {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "인증에 실패했습니다.");
                     return;
                 } else {
-                    log.info("토큰 검증 성공");
+                    log.debug("토큰 검증 성공");
                     Claims claims = jwtUtil.getUserInfoFromToken(token);
 
                     Long userId = Long.parseLong(claims.getSubject());
