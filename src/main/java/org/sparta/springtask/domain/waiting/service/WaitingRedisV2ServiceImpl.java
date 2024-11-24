@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Primary
 @RequiredArgsConstructor
 @Service
 public class WaitingRedisV2ServiceImpl implements WaitingService {
